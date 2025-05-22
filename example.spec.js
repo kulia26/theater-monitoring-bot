@@ -57,9 +57,6 @@ async function checkTickets(browser, eventLink) {
 
   const occupied = await (await page.getByText('Вільні місця, на жаль, закінчились')).isVisible();
 
-  console.log({occupied, eventLink});
-
-
   await page.close();
   
   return !occupied;
@@ -84,14 +81,13 @@ test('get started link', async ({ browser }) => {
       const free = await checkTickets(browser, link);
 
       if (free) {
-        message += `\n[${title}](${link}) є вільні місця}\n`;
+        message += `\n[${title}](${link}) є вільні місця\n`;
         ticketsFound = true;
       }
     }
   }
 
   if (ticketsFound) {
-      console.log({message})
 
     await sendMessage(message);
   }
