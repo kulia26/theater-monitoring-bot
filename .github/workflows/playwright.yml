@@ -17,5 +17,7 @@ jobs:
     - name: Install Playwright Browsers
       run: pnpm exec playwright install --with-deps
     - name: Run Playwright tests
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_GROUP_ID: ${{ secrets.TELEGRAM_GROUP_ID }}
       run: pnpm exec playwright test
-  
