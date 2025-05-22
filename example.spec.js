@@ -16,7 +16,6 @@ const bot = new TelegramBot(TELEGRAM_BOT_TOKEN);
 
 const monitoringTitles = [
   /Конотопська відьма/,
-  /Грек Зорба/,
 ];
 
 async function getMaxPages(page) {
